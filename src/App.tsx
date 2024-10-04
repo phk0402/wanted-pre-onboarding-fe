@@ -62,7 +62,6 @@ const InfiniteScrollComponent: React.FC = () => {
     <>
       <div>
         <h1>Infinite Scroll Example</h1>
-        <p>Total Price: ${calculateTotalPrice()}</p>
         <ul className="list-wrap">
           {data.map((item) => (
             <li key={item.productId}>
@@ -72,6 +71,7 @@ const InfiniteScrollComponent: React.FC = () => {
             </li>
           ))}
         </ul>
+        <p>Total Price: ${calculateTotalPrice()}</p>
       </div>
       {loading && <p className="loading">Loading...</p>}
       {!hasMore && <p className="loading">No more items to load.</p>}
