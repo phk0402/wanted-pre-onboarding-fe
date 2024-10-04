@@ -1,4 +1,3 @@
-// InfiniteScrollComponent.tsx
 import React, { useState, useEffect, useRef } from "react";
 import { MOCK_DATA } from "./api/mockData";
 
@@ -54,21 +53,29 @@ const InfiniteScrollComponent: React.FC = () => {
     };
   }, []);
 
+  // 가격 총합 계산 함수
+  const calculateTotalPrice = () => {
+    return data.reduce((total, item) => total + item.price, 0);
+  };
+
   return (
-    <div>
-      <h1>Infinite Scroll Example</h1>
-      <ul>
-        {data.map((item) => (
-          <li key={item.productId}>
-            <h2>{item.productName}</h2>
-            <span>price: {item.price}</span>
-            <span>boughtDate: {item.boughtDate}</span>
-          </li>
-        ))}
-      </ul>
-      {loading && <p>Loading...</p>}
-      {!hasMore && <p>No more items to load.</p>}
-    </div>
+    <>
+      <div>
+        <h1>Infinite Scroll Example</h1>
+        <p>Total Price: ${calculateTotalPrice()}</p>
+        <ul className="list-wrap">
+          {data.map((item) => (
+            <li key={item.productId}>
+              <h2>{item.productName}</h2>
+              <span>price: {item.price}</span>
+              <span>boughtDate: {item.boughtDate}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {loading && <p className="loading">Loading...</p>}
+      {!hasMore && <p className="loading">No more items to load.</p>}
+    </>
   );
 };
 

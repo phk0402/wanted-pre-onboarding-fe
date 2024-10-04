@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/phk0402/wanted-pre-onboarding-fe.git
+	fetch = +refs/*:refs/*
+	mirror = true
